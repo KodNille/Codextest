@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Neon Subscription Tracker</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <header>
+        <h1>Mina subscriptions</h1>
+        <p>Håll koll på vad du betalar varje månad och år.</p>
+      </header>
+
+      <section class="card">
+        <h2>Lägg till subscription</h2>
+        <form id="subscription-form">
+          <label>
+            Namn
+            <input type="text" id="name" placeholder="t.ex. Netflix" required />
+          </label>
+
+          <label>
+            Kostnad
+            <input type="number" id="price" min="0" step="0.01" placeholder="129" required />
+          </label>
+
+          <label>
+            Fakturering
+            <select id="interval" required>
+              <option value="monthly">Per månad</option>
+              <option value="yearly">Per år</option>
+            </select>
+          </label>
+
+          <label>
+            Kategori
+            <input type="text" id="category" placeholder="Streaming, Musik, etc." />
+          </label>
+
+          <button type="submit">Spara</button>
+        </form>
+      </section>
+
+      <section class="summary">
+        <article class="metric">
+          <h3>Total per månad</h3>
+          <p id="monthly-total">0 kr</p>
+        </article>
+        <article class="metric">
+          <h3>Total per år</h3>
+          <p id="yearly-total">0 kr</p>
+        </article>
+      </section>
+
+      <section class="card">
+        <h2>Dina subscriptions</h2>
+        <ul id="subscription-list"></ul>
+      </section>
+    </main>
+
+    <template id="subscription-item-template">
+      <li class="subscription-item">
+        <div>
+          <strong class="item-name"></strong>
+          <p class="item-meta"></p>
+        </div>
+        <button class="delete-button" type="button">Ta bort</button>
+      </li>
+    </template>
+
+    <script src="app.js"></script>
+  </body>
+</html>
